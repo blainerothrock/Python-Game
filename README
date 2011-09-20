@@ -1,0 +1,5 @@
+***Python Game***
+
+This is a space invader type game that I created for a python class I took at the IU. The idea of this game to to be just like space invaders, but with different missiles and health instead of life. It hasn't been tested much for playability. It was created mostly using Liveswires package, but has some potential if some parts of the program are changed to use pygame features. I go back and look at the code from time to time and make minor changes. 
+
+  
