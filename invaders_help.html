@@ -1,0 +1,700 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0071)http://www.tuxradar.com/content/code-project-build-space-invaders-clone -->
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Code Project: Build a Space Invaders clone | TuxRadar Linux</title>
+
+<link rel="shortcut icon" href="http://www.tuxradar.com/misc/favicon.ico" type="image/x-icon">
+<style type="text/css" media="all">@import "/modules/node/node.css";</style>
+<style type="text/css" media="all">@import "/modules/system/defaults.css";</style>
+<style type="text/css" media="all">@import "/modules/system/system.css";</style>
+<style type="text/css" media="all">@import "/modules/taxonomy_browser/taxonomy_browser.css";</style>
+<style type="text/css" media="all">@import "/modules/user/user.css";</style>
+<style type="text/css" media="all">@import "/modules/comment/comment.css";</style>
+
+<link rel="stylesheet" type="text/css" href="./invaders_help_files/main.css">
+
+<script type="text/javascript" src="./invaders_help_files/jquery.js"></script>
+<script type="text/javascript" src="./invaders_help_files/drupal.js"></script>
+<script type="text/javascript">var RecaptchaOptions = {theme : 'clean'};</script>
+
+<script src="./invaders_help_files/prettify.js" type="text/javascript"></script>
+
+<style type="text/css">.recaptchatable td img{display:block}.recaptchatable .recaptcha_image_cell center img{height:57px}.recaptchatable .recaptcha_image_cell center{height:57px}.recaptchatable .recaptcha_image_cell{background-color:white;height:57px;padding:7px!important}.recaptchatable,#recaptcha_area tr,#recaptcha_area td,#recaptcha_area th{margin:0!important;border:0!important;border-collapse:collapse!important;vertical-align:middle!important}.recaptchatable *{margin:0;padding:0;border:0;color:black;position:static;top:auto;left:auto;right:auto;bottom:auto;text-align:left!important}.recaptchatable #recaptcha_image{margin:auto;border:1px solid #dfdfdf!important}.recaptchatable a img{border:0}.recaptchatable a,.recaptchatable a:hover{-moz-outline:none;border:0!important;padding:0!important;text-decoration:none;color:blue;background:none!important;font-weight:normal}.recaptcha_input_area{position:relative!important;background:none!important}.recaptchatable label.recaptcha_input_area_text{border:1px solid #dfdfdf!important;margin:0!important;padding:0!important;position:static!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important}.recaptcha_theme_red label.recaptcha_input_area_text,.recaptcha_theme_white label.recaptcha_input_area_text{color:black!important}.recaptcha_theme_blackglass label.recaptcha_input_area_text{color:white!important}.recaptchatable #recaptcha_response_field{font-size:11pt}.recaptcha_theme_blackglass #recaptcha_response_field,.recaptcha_theme_white #recaptcha_response_field{border:1px solid gray}.recaptcha_theme_red #recaptcha_response_field{border:1px solid #cca940}.recaptcha_audio_cant_hear_link{font-size:7pt;color:black}.recaptchatable{line-height:1em;border:1px solid #dfdfdf!important}.recaptcha_error_text{color:red}
+
+.recaptcha_is_showing_audio .recaptcha_only_if_image,.recaptcha_isnot_showing_audio .recaptcha_only_if_audio,.recaptcha_had_incorrect_sol .recaptcha_only_if_no_incorrect_sol,.recaptcha_nothad_incorrect_sol .recaptcha_only_if_incorrect_sol{display:none !important}</style></head>
+
+<body onload="prettyPrint();">
+
+	
+<div id="masthead">
+	<div class="inner">
+		<div id="logo">
+			<a href="http://www.tuxradar.com/"><img src="./invaders_help_files/tuxradar.png" alt="TuxRadar" title="TuxRadar"></a>
+		</div>
+
+		<div style="float: right; margin-top: 5px">
+
+
+<!-- begin ad tag-->
+<script language="JavaScript" type="text/javascript">
+if (typeof ord=='undefined') {ord=Math.random()*10000000000000000;}
+document.write('<script language="JavaScript" src="http://ad.doubleclick.net/adj/fut.gb.techmini/tuxradar;dcopt=ist;sz=728x90;ord=' + ord + '?" type="text/javascript"><\/script>');
+</script><script language="JavaScript" src="./invaders_help_files/tuxradar;dcopt=ist;sz=728x90" type="text/javascript"></script>
+<script type="text/javascript" src="./invaders_help_files/show_ads.js">
+</script><script src="./invaders_help_files/show_ads_impl.js"></script><script src="./invaders_help_files/expansion_embed.js"></script><script src="./invaders_help_files/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><ins id="google_ads_frame1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><iframe allowtransparency="true" frameborder="0" height="90" hspace="0" id="google_ads_frame1" marginheight="0" marginwidth="0" name="google_ads_frame" scrolling="no" src="./invaders_help_files/ads(1).html" style="left:0;position:absolute;top:0" vspace="0" width="728"></iframe></ins></ins><noscript>&lt;a href="http://ad.doubleclick.net/jump/fut.gb.techmini/tuxradar;sz=728x90;ord=123456789?" target="_blank"&gt;&lt;img src="http://ad.doubleclick.net/ad/fut.gb.techmini/tuxradar;sz=728x90;ord=123456789?" width="728" height="90" border="0" alt=""&gt;&lt;/a&gt;</noscript>
+<!-- End ad tag -->
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="top_nav">
+	<div class="inner">
+		<div id="menubar">
+			<ul class="links"><li class="first $key"><a href="http://www.tuxradar.com/" class="menu-1-1-2">Latest News</a></li>
+<li class="$key"><a href="http://www.tuxradar.com/podcast" class="menu-1-2-2">Podcast</a></li>
+<li class="$key"><a href="http://www.tuxradar.com/features" class="menu-1-3-2">Features</a></li>
+<li class="$key"><a href="http://www.tuxradar.com/distros" class="menu-1-4-2">Distros</a></li>
+<li class="$key"><a href="http://www.tuxradar.com/code" class="menu-1-5-2">Code</a></li>
+<li class="$key"><a href="http://www.tuxradar.com/apps" class="menu-1-6-2">Apps</a></li>
+<li class="$key"><a href="http://www.tuxradar.com/web" class="menu-1-7-2">Web</a></li>
+<li class="last $key"><a href="http://www.tuxradar.com/hardware" class="menu-1-8-2">Hardware</a></li>
+</ul>		</div>
+
+		<div id="search_box">
+			<form id="search-block-form" method="post" accept-charset="UTF-8" action="http://www.tuxradar.com/search/node">
+				<input type="text" id="searchterm" name="keys" size="10">
+				<input type="hidden" name="form_token" id="edit-search-form-form-token" value="7f87c391c9273690fda7f28e0cc1d584">
+				<input type="hidden" name="form_id" id="edit-search-form" value="search_form">
+				<input id="search_button" type="submit" value="Search">
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="topstories">
+	<div class="inner" style="text-align: center;">
+		<p>
+
+		<strong>Listen to this:
+
+<a href="http://www.tuxradar.com/content/podcast-season-2-episode-12">our Linux podcast kicks ass. Subscribe for free!</a>
+
+</strong>
+		</p>
+
+		<a href="http://www.tuxradar.com/rss"><img src="./invaders_help_files/rss-small.png" style="border: 0; vertical-align: middle;"></a>
+	</div>
+</div>
+
+<div id="content">
+	<div class="inner">
+		<div id="node-54" class="node">
+
+<h1>Code Project: Build a Space Invaders clone</h1><div class="submitted">Posted at 9:44am on Wednesday February 11th 2009</div><div class="content" style="clear: both;"><div style="float: left; text-align: center;"><img src="./invaders_help_files/code.png" alt="Code" style="margin-bottom: 2px;"><br></div>
+	<div style="margin-left: 110px; margin-bottom: 40px;"><p>Programming is great. You get to create something new, stimulate your brain and have fun along the way - especially if you're programming games. So we're going to show you how to write your very own Space Invaders lookalike called PyInvaders - but don't panic if you're tired of dull programming theory: take that palm away from your forehead. Here we'll focus on doing Cool Stuff(tm), making a game work instead of warbling about algorithms, data structures and object oriented polymorphism encapsulation. Or whatever.</p>
+			<p style="text-align: center;">
+</p><div style="float: right; margin: 20px">
+<!-- begin ad tag-->
+<script language="JavaScript" type="text/javascript">
+if (typeof ord=='undefined') {ord=Math.random()*10000000000000000;}
+document.write('<script language="JavaScript" src="http://ad.doubleclick.net/adj/fut.gb.techmini/tuxradar;dcopt=ist;sz=300x250;ord=' + ord + '?" type="text/javascript"><\/script>');
+</script><script language="JavaScript" src="./invaders_help_files/tuxradar;dcopt=ist;sz=300x250" type="text/javascript"></script>
+<script type="text/javascript" src="./invaders_help_files/show_ads.js">
+</script><script src="./invaders_help_files/show_ads_impl.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px"><ins id="google_ads_frame2_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px"><iframe allowtransparency="true" frameborder="0" height="250" hspace="0" id="google_ads_frame2" marginheight="0" marginwidth="0" name="google_ads_frame" scrolling="no" src="./invaders_help_files/ads.html" style="left:0;position:absolute;top:0" vspace="0" width="300"></iframe></ins></ins><noscript>&lt;a href="http://ad.doubleclick.net/jump/fut.gb.techmini/tuxradar;sz=300x250;ord=123456789?" target="_blank"&gt;&lt;img src="http://ad.doubleclick.net/ad/fut.gb.techmini/tuxradar;sz=300x250;ord=123456789?" width="300" height="250" border="0" alt=""&gt;&lt;/a&gt;</noscript>
+<!-- End ad tag -->
+</div>
+				<p></p>
+
+				
+
+<p>Consequently, to follow this guide it helps if you have some prior programming experience. We're not going to explain everything in depth; if you've dabbled in some code before, and know your arrays from your elbow, you won't have any problems. For those completely new to programming, you might find some of the terminology a bit bamboozling, but you don't have to understand it all. Just take in what you can, grab the source code from the DVD and start experimenting by making changes yourself. That's how all great programmers got started!</p>
+
+<p>So, as mentioned, we'll be making a mini Space Invaders clone. Our choice of programming language is Python due to its simple syntax and code cleanliness - it's very easy to read. PyGame, a language binding that wraps the SDL multi-media library around Python, will provide the graphical plumbing for our program, saving us from the chore of manipulating images by hand. Most distros have Python pre-installed, and PyGame is available in nigh-on every repository, so get the tools, open up a text editor, and let's get cracking...</p>
+
+
+
+<div class="download"><a href="http://www.tuxradar.com/files/pygame1.zip">Download the code for this project</a></div>
+
+<h2>A Python primer</h2>
+
+<p>Before embarking on any programming project, it's essential to get comfortable with the language to be used, even if it's just the raw basics. Given that 99% of programming is about manipulating variables (data storage places), calling routines (standalone bits of code) and acting on the result (if a = b, then do c), we can summarise Python's workings very succinctly below. (If you're a a regular Python hacker, just skip over this bit.)</p>
+
+<pre class="prettyprint lang-py"><span class="kwd">def</span><span class="pln"> </span><span class="typ">Multiply</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">):</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; z </span><span class="pun">=</span><span class="pln"> x </span><span class="pun">*</span><span class="pln"> y<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">return</span><span class="pln"> z<br><br>a </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pln"><br>b </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pln"><br><br></span><span class="kwd">print</span><span class="pln"> </span><span class="str">"a is"</span><span class="pun">,</span><span class="pln"> a</span><span class="pun">,</span><span class="pln"> </span><span class="str">"and b is"</span><span class="pun">,</span><span class="pln"> b<br><br>answer </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Multiply</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">)</span><span class="pln"><br><br></span><span class="kwd">if</span><span class="pln"> answer </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">10</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> </span><span class="str">"Result is bigger than 10"</span><span class="pln"><br></span><span class="kwd">else</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> </span><span class="str">"Less or equal to 10"</span></pre>
+
+<p>This very short program demonstrates many features of Python in action. Save this code to a file called test.py in your home directory, then open a terminal and enter 'python test.py' to run it.</p>
+
+<p>The first three lines create (define) a function called Multiply - that is, a chunk of code that isn't executed when we start the program, but a routine that we can call upon later. The x and y are two variables that need to be sent to the routine when we run it. You can then see that a new variable called z is created, and it's assigned the value of x multiplied by y. We then return the number in that variable back to the calling program.</p>
+
+<p>After this function, execution of the program starts. We know this because there's no indentation - ie tabs or spaces before the code. Python makes heavy use of indentation to show where code belongs, whether it's part of a function or a loop etc. In this case, there's no indentation because it's not part of the preceding Multiply function, so execution begins here.</p>
+
+<p>We create two variables called a and b, giving them the values 5 and 10 respectively. (A variable is a container for data - it can contain other numbers throughout the duration of the program.) We print out the contents of the variables, and then send them to the Multiply function that we created before. Remember the 'return' part of the Multiply function? Well, that sends back the multiplied result, so we store that result into a new 'answer' variable.</p>
+
+<p>Finally, we check to see if the answer variable is bigger than 10; if so, we print a message. If it's smaller than (or equal to) 10, we print a different message. Try changing the numbers in this program and experimenting with the code to get to grips with Python - once you feel comfortable, you're ready for some game coding capers.</p>
+
+<div class="image">
+<img src="./invaders_help_files/pygame1.kwrite.png" alt="Text editors with syntax colouring, such as KWrite, make it easier to read your code.">
+<p>Text editors with syntax colouring, such as KWrite, make it easier to read your code.</p>
+</div>
+
+
+
+<h2>The aliens arrive</h2>
+
+<p>Before we thrash out our code, though, we need to get some graphics in place. Text-mode Space Invaders would be cool for your geek ranking, but let's make decent use of our graphics cards. For PyInvaders, we need five images that you can create by hand with Gimp, or <a href="http://www.tuxradar.com/files/pygame1.zip">you can use the quick mock-ups we made ourselves</a>. Here's what you'll need if you want to create them yourself:</p>
+
+<ul>
+<li>backdrop.bmp - A 640x480 pixel image to serve as the background in the game. It's best not to make it too bright or busy, as it'll just distract you from the sprites.</li>
+<li>hero.bmp - 32x32 pixels for the player craft; for those parts you want to be transparent, colour them black.</li>
+<li>baddie.bmp - Same as above, but for the evil invaders.</li>
+<li>heromissile.bmp and baddiemissile.bmp - Again, 32x32 using black for transparent bits, with the player's missile pointing upwards and enemy's pointing downwards.</li>
+</ul>
+
+<p>Create a directory called PyInvaders in your home folder, then make a subdirectory called data containing the above files.</p>
+
+<p>Let's also think about what we want to do with a Space Invaders-like game: if you've never seen it before, it essentially involves several rows of aliens moving back and forth at the top of the screen, firing missiles and occasionally moving down towards the player. You can fire missiles upwards to zap enemies - your goal is to destroy them before they destroy you.</p>
+
+
+<h2>The code in full</h2>
+
+<p>To keep things simple (and the code compact), we'll just have one row of aliens for now, and no score counter or bonuses. But these are things you can add later when you understand the code! We'll now go through the source in chunks to explain it; you can find it as a single file (pyinvaders.py) in the source code for this project. For now, read the following text to fathom out how it all works.</p>
+
+<pre class="prettyprint lang-py"><span class="kwd">from</span><span class="pln"> pygame </span><span class="kwd">import</span><span class="pln"> </span><span class="pun">*</span><span class="pln"><br></span><span class="kwd">import</span><span class="pln"> random</span></pre>
+
+<p>These first two lines are very simple: they just tell Python that we want to use the PyGame module, so that we can load images and manage the screen easily, and let us generate random numbers later on.</p>
+
+<pre class="prettyprint lang-py"><span class="kwd">class</span><span class="pln"> </span><span class="typ">Sprite</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">def</span><span class="pln"> __init__</span><span class="pun">(</span><span class="pln">self</span><span class="pun">,</span><span class="pln"> xpos</span><span class="pun">,</span><span class="pln"> ypos</span><span class="pun">,</span><span class="pln"> filename</span><span class="pun">):</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; self</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> xpos<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; self</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> ypos<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; self</span><span class="pun">.</span><span class="pln">bitmap </span><span class="pun">=</span><span class="pln"> image</span><span class="pun">.</span><span class="pln">load</span><span class="pun">(</span><span class="pln">filename</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; self</span><span class="pun">.</span><span class="pln">bitmap</span><span class="pun">.</span><span class="pln">set_colorkey</span><span class="pun">((</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">))</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">def</span><span class="pln"> set_position</span><span class="pun">(</span><span class="pln">self</span><span class="pun">,</span><span class="pln"> xpos</span><span class="pun">,</span><span class="pln"> ypos</span><span class="pun">):</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; self</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> xpos<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; self</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> ypos<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">def</span><span class="pln"> render</span><span class="pun">(</span><span class="pln">self</span><span class="pun">):</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; screen</span><span class="pun">.</span><span class="pln">blit</span><span class="pun">(</span><span class="pln">self</span><span class="pun">.</span><span class="pln">bitmap</span><span class="pun">,</span><span class="pln"> </span><span class="pun">(</span><span class="pln">self</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> self</span><span class="pun">.</span><span class="pln">y</span><span class="pun">))</span></pre>
+
+<p>Next comes this class. If you're familiar with object oriented programming, you'll already know how a class works, but if not, think of it as a type of box for storing data and commands. This code isn't executed at the start of the program - it just says "Here's a box of data and commands called Sprite, which you can use later". The class sets up variables for a sprite, most notably the x and y variables which will hold a sprite's position on the screen. The __init__ routine is run when we first create a new instance of the class (a new box based on this description), and loads the filename provided as the sprite image. Also, the set_colorkey line tells PyGame that we want black (0,0,0 in RGB) pixels to be transparent.</p>
+
+<div class="image">
+<img src="./invaders_help_files/pygame1.docs.png" alt="Head over to www.pygame.org/docs for a complete guide and reference to PyGame&#39;s functionality.">
+<p>Head over to <a href="http://www.pygame.org/docs/">www.pygame.org/docs</a> for a complete guide and reference to PyGame's functionality.</p>
+</div>
+
+<p>If you're new to object oriented programming, you might find all this a tad confusing. But again, just think of this as a type of box containing variables and routines (those labelled def), and we can create many instances (copies) of this box with different data contents. So, we'll create 10 instances of this Sprite class for the enemies, one for the player, and so forth.</p>
+
+<pre class="prettyprint lang-py"><span class="kwd">def</span><span class="pln"> </span><span class="typ">Intersect</span><span class="pun">(</span><span class="pln">s1_x</span><span class="pun">,</span><span class="pln"> s1_y</span><span class="pun">,</span><span class="pln"> s2_x</span><span class="pun">,</span><span class="pln"> s2_y</span><span class="pun">):</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">s1_x </span><span class="pun">&gt;</span><span class="pln"> s2_x </span><span class="pun">-</span><span class="pln"> </span><span class="lit">32</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">and</span><span class="pln"> </span><span class="pun">(</span><span class="pln">s1_x </span><span class="pun">&lt;</span><span class="pln"> s2_x </span><span class="pun">+</span><span class="pln"> </span><span class="lit">32</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">and</span><span class="pln"> </span><span class="pun">(</span><span class="pln">s1_y </span><span class="pun">&gt;</span><span class="pln"> s2_y </span><span class="pun">-</span><span class="pln"> </span><span class="lit">32</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">and</span><span class="pln"> </span><span class="pun">(</span><span class="pln">s1_y </span><span class="pun">&lt;</span><span class="pln"> s2_y </span><span class="pun">+</span><span class="pln"> </span><span class="lit">32</span><span class="pun">):</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">return</span><span class="pln"> </span><span class="lit">1</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">else</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">return</span><span class="pln"> </span><span class="lit">0</span></pre>
+
+<p>Next up is this slightly intimidating bit of code. Because it's a function (denoted by def) it isn't executed when the program starts, but can be called upon later. All this does is check whether two sprites overlap - it takes the x and y pixel positions of one sprite (s1_x and s2_x variables), compares them against the positions of another (s2_x and s2_y), and returns 1 if they're overlapping. Et voila: simple collision detection! Note that this is hard-coded for sprites of 32x32 pixels, but you can change the numbers accordingly if you use bigger sprites later on.</p>
+
+<pre class="prettyprint lang-py"><span class="pln">init</span><span class="pun">()</span><span class="pln"><br>screen </span><span class="pun">=</span><span class="pln"> display</span><span class="pun">.</span><span class="pln">set_mode</span><span class="pun">((</span><span class="lit">640</span><span class="pun">,</span><span class="lit">480</span><span class="pun">))</span><span class="pln"><br>key</span><span class="pun">.</span><span class="pln">set_repeat</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span><span class="pln"><br>display</span><span class="pun">.</span><span class="pln">set_caption</span><span class="pun">(</span><span class="str">'PyInvaders'</span><span class="pun">)</span><span class="pln"><br>backdrop </span><span class="pun">=</span><span class="pln"> image</span><span class="pun">.</span><span class="pln">load</span><span class="pun">(</span><span class="str">'data/backdrop.bmp'</span><span class="pun">)</span></pre>
+
+<p>Next, we initialise PyGame, set up the screen mode, configure keyboard repeat to be rapid (for controlling our player), set the text in the titlebar, and load the background image.</p>
+
+<pre class="prettyprint lang-py"><span class="pln">enemies </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[]</span><span class="pln"><br><br>x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"><br><br></span><span class="kwd">for</span><span class="pln"> count </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="lit">10</span><span class="pun">):</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; enemies</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="typ">Sprite</span><span class="pun">(</span><span class="lit">50</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> x </span><span class="pun">+</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="str">'data/baddie.bmp'</span><span class="pun">))</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; x </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">1</span><span class="pln"><br><br>hero </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Sprite</span><span class="pun">(</span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">400</span><span class="pun">,</span><span class="pln"> </span><span class="str">'data/hero.bmp'</span><span class="pun">)</span><span class="pln"><br>ourmissile </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Sprite</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">480</span><span class="pun">,</span><span class="pln"> </span><span class="str">'data/heromissile.bmp'</span><span class="pun">)</span><span class="pln"><br>enemymissile </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Sprite</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">480</span><span class="pun">,</span><span class="pln"> </span><span class="str">'data/baddiemissile.bmp'</span><span class="pun">)</span></pre>
+
+<p>Here we create a new list of objects called 'enemies'. (A list in Python is similar to an array in other languages, albeit much more flexible.) The list is empty to start with, so we add (append) 10 new Sprite class objects in a loop. Here you can see how we create instances of the class (or copies of the box) we created before, providing the initial x position, y position and filename. the '50 * x + 50' part looks a bit odd, but it means that the horizontal position of the new enemy sprites is staggered. So, the first sprite x position is 50, the next is 100, and so forth as we go through the loop.</p>
+
+<p>The last three lines of this chunk are easy to grok - they load sprites for the player (hero), the player's missile and the enemy missile. Remember earlier that we set the screen mode to 640x480? Well, here we set the missile y (vertical) positions at 480, off the bottom of the screen, as we don't want to show them until they're fired.</p>
+
+<pre class="prettyprint lang-py"><span class="pln">quit </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"><br>enemyspeed </span><span class="pun">=</span><span class="pln"> </span><span class="lit">3</span><span class="pln"><br><br></span><span class="kwd">while</span><span class="pln"> quit </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; screen</span><span class="pun">.</span><span class="pln">blit</span><span class="pun">(</span><span class="pln">backdrop</span><span class="pun">,</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">))</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">for</span><span class="pln"> count </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="pln">len</span><span class="pun">(</span><span class="pln">enemies</span><span class="pun">)):</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; enemies</span><span class="pun">[</span><span class="pln">count</span><span class="pun">].</span><span class="pln">x </span><span class="pun">+=</span><span class="pln"> enemyspeed<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; enemies</span><span class="pun">[</span><span class="pln">count</span><span class="pun">].</span><span class="pln">render</span><span class="pun">()</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> enemies</span><span class="pun">[</span><span class="pln">len</span><span class="pun">(</span><span class="pln">enemies</span><span class="pun">)-</span><span class="lit">1</span><span class="pun">].</span><span class="pln">x </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">590</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; enemyspeed </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">3</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">for</span><span class="pln"> count </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="pln">len</span><span class="pun">(</span><span class="pln">enemies</span><span class="pun">)):</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; enemies</span><span class="pun">[</span><span class="pln">count</span><span class="pun">].</span><span class="pln">y </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">5</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> enemies</span><span class="pun">[</span><span class="lit">0</span><span class="pun">].</span><span class="pln">x </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">10</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; enemyspeed </span><span class="pun">=</span><span class="pln"> </span><span class="lit">3</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">for</span><span class="pln"> count </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="pln">len</span><span class="pun">(</span><span class="pln">enemies</span><span class="pun">)):</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; enemies</span><span class="pun">[</span><span class="pln">count</span><span class="pun">].</span><span class="pln">y </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">5</span></pre>
+
+<p>Now the main game kicks in. The quit variable is a simple yes/no (1/0) variable that's used to determine if the game should end (ie whether the player has zapped all the baddies, or been hit by a missile). Then enemyspeed determines how fast the enemies move - you can play around with that later to make the game more challenging.</p>
+
+<p>Following that, the game's main loop starts in the 'while' line. First, we draw the backdrop image at x and y position 0 and 0 respectively (the top-left of the screen). Then, we run through a loop counting up the enemies in our previously created list of objects. the len(enemies) tells us how many enemy objects are in the list - it will decrease from 10 as the player kills the baddies. In the loop we add the enemy's speed counter to each baddie sprite object, then call the render() function in the Sprite definition at the top of the file for each baddie.</p>
+
+<p>The next two loops determine the direction and vertical position of the row of enemies. If the furthest right enemy, enemies[len(enemies)-1], has reached the right-hand side of the screen (590 pixels), then send the row heading off in the other direction by inverting the speed value. Also, move all of the enemies down by adding 5 their y (vertical) positions. The loop after this does the same, but when the enemies hit the left-hand side of the screen.</p>
+
+<pre class="prettyprint lang-py"><span class="kwd">if</span><span class="pln"> ourmissile</span><span class="pun">.</span><span class="pln">y </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">479</span><span class="pln"> </span><span class="kwd">and</span><span class="pln"> ourmissile</span><span class="pun">.</span><span class="pln">y </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; ourmissile</span><span class="pun">.</span><span class="pln">render</span><span class="pun">()</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; ourmissile</span><span class="pun">.</span><span class="pln">y </span><span class="pun">+=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">5</span><span class="pln"><br><br></span><span class="kwd">if</span><span class="pln"> enemymissile</span><span class="pun">.</span><span class="pln">y </span><span class="pun">&gt;=</span><span class="pln"> </span><span class="lit">480</span><span class="pln"> </span><span class="kwd">and</span><span class="pln"> len</span><span class="pun">(</span><span class="pln">enemies</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; enemymissile</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> enemies</span><span class="pun">[</span><span class="pln">random</span><span class="pun">.</span><span class="pln">randint</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> len</span><span class="pun">(</span><span class="pln">enemies</span><span class="pun">)</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)].</span><span class="pln">x<br>&nbsp; &nbsp; &nbsp; &nbsp; enemymissile</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> enemies</span><span class="pun">[</span><span class="lit">0</span><span class="pun">].</span><span class="pln">y</span></pre>
+
+<p>It's missile handling time. The first if construct draws the player's missile if it's on the screen (ie in play), subtracting 5 pixels from its y position each game loop to make it move up the screen. The second code chunk checks to see if the enemy missile isn't in play - if so, it creates a new one from a random choice of enemy. It does this by setting the missile's x position to one of the enemies: random.randint(0, len(enemies) - 1) chooses an enemy in the list of objects between 0 (the first enemy) up to the last enemy, according to the size of the list.</p>
+
+<pre class="prettyprint lang-py"><span class="kwd">if</span><span class="pln"> </span><span class="typ">Intersect</span><span class="pun">(</span><span class="pln">hero</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> hero</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span><span class="pln"> enemymissile</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> enemymissile</span><span class="pun">.</span><span class="pln">y</span><span class="pun">):</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; quit </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pln"><br><br></span><span class="kwd">for</span><span class="pln"> count </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> len</span><span class="pun">(</span><span class="pln">enemies</span><span class="pun">)):</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="typ">Intersect</span><span class="pun">(</span><span class="pln">ourmissile</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> ourmissile</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span><span class="pln"> enemies</span><span class="pun">[</span><span class="pln">count</span><span class="pun">].</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> enemies</span><span class="pun">[</span><span class="pln">count</span><span class="pun">].</span><span class="pln">y</span><span class="pun">):</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">del</span><span class="pln"> enemies</span><span class="pun">[</span><span class="pln">count</span><span class="pun">]</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">break</span><span class="pln"><br><br></span><span class="kwd">if</span><span class="pln"> len</span><span class="pun">(</span><span class="pln">enemies</span><span class="pun">)</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; quit </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span></pre>
+
+<p>Now for some collision detection. If the player's sprite (hero) has come into contact with the enemy's sprite, quit out of the game. In the next chunk, we count through the enemy list in a 'for' loop, seeing if any of them intersect with our missile. If they do, we delete the enemy object that has been touched from the list, and break out of the loop (so that it doesn't continue with non existing objects). When an enemy object is deleted, the list gets smaller. Finally, we check to see if the length of the enemies list is zero - that is, the player has killed all the enemies. If so, quit out!</p>
+
+<pre class="prettyprint lang-py"><span class="kwd">for</span><span class="pln"> ourevent </span><span class="kwd">in</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">get</span><span class="pun">():</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> ourevent</span><span class="pun">.</span><span class="pln">type </span><span class="pun">==</span><span class="pln"> QUIT</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; quit </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> ourevent</span><span class="pun">.</span><span class="pln">type </span><span class="pun">==</span><span class="pln"> KEYDOWN</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> ourevent</span><span class="pun">.</span><span class="pln">key </span><span class="pun">==</span><span class="pln"> K_RIGHT </span><span class="kwd">and</span><span class="pln"> hero</span><span class="pun">.</span><span class="pln">x </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">590</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; hero</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">5</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> ourevent</span><span class="pun">.</span><span class="pln">key </span><span class="pun">==</span><span class="pln"> K_LEFT </span><span class="kwd">and</span><span class="pln"> hero</span><span class="pun">.</span><span class="pln">x </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">10</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; hero</span><span class="pun">.</span><span class="pln">x </span><span class="pun">-=</span><span class="pln"> </span><span class="lit">5</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> ourevent</span><span class="pun">.</span><span class="pln">key </span><span class="pun">==</span><span class="pln"> K_SPACE</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ourmissile</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> hero</span><span class="pun">.</span><span class="pln">x<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ourmissile</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> hero</span><span class="pun">.</span><span class="pln">y</span></pre>
+
+<p>Here's the keyboard handling bit. We get a list of SDL events (keyboard, mouse, window manager etc.) and worth through them. If we get a QUIT event, it means that the user has tried to close the window, so set the quit variable which will halt our program in the master 'while' loop.</p>
+
+<p>However, if a KEYDOWN event has been received, we need to process it. This is very clear here: if the right cursor key is pressed and we're not flying off the screen, add 5 to the player's horizontal position. Then it's the same for the left cursor key, but inverted. We also check for the space key; if it's pressed, bring a new missile to live by placing it at the player's position.</p>
+
+<pre class="prettyprint lang-py"><span class="pln">enemymissile</span><span class="pun">.</span><span class="pln">render</span><span class="pun">()</span><span class="pln"><br>enemymissile</span><span class="pun">.</span><span class="pln">y </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">5</span><span class="pln"><br><br>hero</span><span class="pun">.</span><span class="pln">render</span><span class="pun">()</span><span class="pln"><br><br>display</span><span class="pun">.</span><span class="pln">update</span><span class="pun">()</span><span class="pln"><br>time</span><span class="pun">.</span><span class="pln">delay</span><span class="pun">(</span><span class="lit">5</span><span class="pun">)</span></pre>
+
+<p>And here's the final chunk of code. We render the enemy's missile and make it move down the screen, then render the player's sprite. Note display.update() - it's an essential part of PyGame programming. Whatever you do with the screen, it won't actually be displayed until you call that routine, hence why it's at the end of the 'while' main game loop. Lastly, we add a delay so that the game doesn't move too quickly -- try playing around with it.</p>
+
+
+<h2>And we're done</h2>
+
+<p>So there's the code! It's a lot to take in if you're new to Python and PyGame, but if you follow it carefully it should all make sense. Grab the complete file (pyinvaders.py) <a href="http://www.tuxradar.com/files/pygame1.zip">from here</a>, then copy it into the PyInvaders folder you made before, which also contains the data directory for the images. Then open up a terminal and enter this to run the game:</p>
+
+<pre class="command">cd PyInvaders
+python pyinvaders.py
+</pre>
+
+
+<div class="image">
+<img src="./invaders_help_files/pygame1.pyinvaders.png" alt="Our finished game! Behold the expertly drawn aliens. Really, have you ever seen anything scarier?">
+<p>Our finished game! Behold the expertly drawn aliens. Really, have you ever seen anything scarier?</p>
+</div>
+
+
+
+
+
+<div class="boxout">
+<h2>Taking it to the next level</h2>
+
+<p>Once you're familiar with the code, why not try your hand at enhancing PyInvaders with new features? Here's some suggestions for things you can modify, along with their corresponding difficulty levels...</p>
+
+<ul>
+<li>EASY - Add a score counter. For this, all you have to do is add 'score = 0' near the top of the code to set up a new variable, and then increment it ('score += 1') whenever you successfully hit an enemy. Then, when the program exits, you can add 'print "You scored:", score' to display the number.</li>
+
+<li>MEDIUM - Check for missile-to-missile collisions. Currently, the game detects when missiles hit spacecraft, but not when one missile hits another. You can add a check into the middle of the code, alongside the current collision detection routines, and then reset both player and enemy missile positions if they're touching.</li>
+
+<li>HARD - Add another row of aliens. You'll have to duplicate a few things in the code here. First, you'll want to set up a secondary list of enemy sprites, with a y position offset larger than the existing list (eg 100). Then you'll have to add the collision checks again, and set up another enemy missile. It'll certainly make the game more taxing!</li>
+</ul>
+
+<p>There are lots of other things you can do too. For instance, you could add sound effects and music to the game, or change sprites when they're hit by a missile. Boom! You could even add joystick or mouse support. See <a href="http://www.pygame.org/docs">www.pygame.org/docs</a> for a wealth of information - in particular, thumb through the Tutorials section and the Chimp game guide for help on using sound effects.</p>
+
+</div>
+
+
+<div class="download"><a href="http://www.tuxradar.com/files/pygame1.zip">Download the code for this project</a></div><p></p>
+			<p style="text-align: center; font-weight: bold;">You should follow us on <a href="http://identi.ca/tuxradar">Identi.ca</a> or <a href="http://twitter.com/tuxradar">Twitter</a></p>
+
+			<div style="text-align: center; margin-top: 20px;">
+				<!-- <script src="http://digg.com/tools/diggthis.js" type="text/javascript"></script> -->
+				<!-- <script type="text/javascript" src="http://www.reddit.com/button.js?t=2"></script> -->
+			</div>
+
+
+			<p style="text-align: center; margin-top: 5px;">
+
+			<script type="text/javascript">
+				document.write ('<a href="');
+				document.write('http://www.stumbleupon.com/submit?url=' +document.URL +'&title='+document.title.replace(/ /g,'+')+'">');
+				document.write ('<img border="0" src="http://cdn.stumble-upon.com/images/160x30_su_blue.gif"></a>');
+			</script><a href="http://www.stumbleupon.com/submit?url=http://www.tuxradar.com/content/code-project-build-space-invaders-clone&title=Code+Project:+Build+a+Space+Invaders+clone+|+TuxRadar+Linux"><img border="0" src="./invaders_help_files/160x30_su_blue.gif"></a>
+
+			<br style="margin-bottom: 5px">
+
+			<script src="./invaders_help_files/slashdot-it.js" type="text/javascript"></script><iframe src="./invaders_help_files/slashdot-it.html" height="25" width="130" scrolling="no" frameborder="0"></iframe>
+
+			</p>
+
+
+			</div>  </div>
+</div>
+<div id="comments"><h2 class="comments">Your comments</h2><a id="comment-591"></a>
+<div class="comment-hi"><h3 class="title">Nice but ...</h3><p class="submitted">renoX (not verified) - February 14, 2009 @ 8:30pm</p><p>I think that one universal "best practice" is to avoid peppering the code with magic numbers.</p>
+<p>So I think that code for beginners should emphasize this point.</p>
+</div><a id="comment-593"></a>
+<div class="comment"><h3 class="title">I smell Algol/C/Java family programmers :-)</h3><p class="submitted">PythonNutter (not verified) - February 14, 2009 @ 10:27pm</p><p>I used to, and still do occasionally, handle iterating over lists in the C style way of thinking instead of the Pythonic and more efficient way.</p>
+<p>Python will handle iteration for you freeing you from setting ranges, count variables, len() calculations, and make your code even more readable and meaningful as a bonus! -- being the nice language it is it will still let us code old C or Java ways of thinking and not complain either but make the resulting code look a bit off to a seasoned Python programmer.</p>
+<p>The basic idiom is this:</p>
+<p>for item in listofitems:<br>
+  do something with item</p>
+<p>Item automatically is set to each element in the list is sequential manner and when the end of listoftems is reached the for loop exits.</p>
+<p>Much cleaner to say</p>
+<p>for enemy in enemies:<br>
+  if intersect(ourmissle.x, ourmissle.y, enemy.x, enemy.y):<br>
+    enemies.remove(enemy)<br>
+    break</p>
+<p>Any time you see len() in logic it's a trigger that you'll possibly be slowing down your logic reinventing a builtin way in Python:</p>
+<p>if no enemies:<br>
+  quit = 1</p>
+<p>List comprehensions are powerful and normally easier to read and understand the logic for beginners -- not us who darted in a c like language who love isn't counters, indices, etc.</p>
+<p>5 lines of initiallization code for the enemies list becomes a single line of python in the form of a list comprehension. Remember the more lines you type the more typing and logic based bugs enter your code and have to have your time spent debugging them out later. It is fine for a small program but good to start the habit early for when developing the next set of games.</p>
+<p>Is the beginner a c programmer trying out Python or a complete beginner?</p>
+<p>The list comprehension replacing 5 line of C style code would be:</p>
+<p>enemies = [Sprite(50 * x + 50, 50, 'data/baddie.bmp) for x in range(10)]</p>
+</div><a id="comment-594"></a>
+<div class="comment-hi"><h3 class="title">Typo correction</h3><p class="submitted">Anonymous Penguin (not verified) - February 14, 2009 @ 10:29pm</p><p>Multiple lines = greater typing bugs :-)</p>
+<p>Should read</p>
+<p>if not enemies:<br>
+  quit = 1</p>
+</div><a id="comment-595"></a>
+<div class="comment"><h3 class="title">Another for count</h3><p class="submitted">Anonymous Penguin (not verified) - February 14, 2009 @ 10:39pm</p><p>There a another for count len() range C programming idiom in the loop after quit = 0 that I'll leave to the readers to catch, rewrite, and then test run the code on their computers.</p>
+</div><a id="comment-643"></a>
+<div class="comment-hi"><h3 class="title">Wonderful article...</h3><p class="submitted">Dan Haworth (not verified) - February 16, 2009 @ 5:02pm</p><p>Really, really enjoyed reading that article, thank you very much! It's been a while since I did some good old fun game programming :)</p>
+<p>And also the comments.. coming from a C background, I'm still in the old way of thinking. Thanks PythonNutter for enlightening me, I may just have to try dabbling in Python again..</p>
+</div><a id="comment-1034"></a>
+<div class="comment"><h3 class="title">Sorry - could not stand the horrible key event routine.</h3><p class="submitted">Python Nutter (not verified) - March 7, 2009 @ 9:25am</p><p>I had to rewrite the key event routine as well as it does not handle the keyboard very well.</p>
+<p>With the code in this article try holding down right, then press space while holding down right, then release space while holding down right... yuck</p>
+<p>Here is the rewritten event code separating out key routines:</p>
+<p> COMMENT OUT THIS CODE BLOCK<br>
+      if len(enemies) == 0:<br>
+                quit = 1</p>
+<p>       for ourevent in event.get():<br>
+               if ourevent.type == QUIT:<br>
+                        quit = 1<br>
+               if ourevent.type == KEYDOWN:<br>
+                       if ourevent.key == K_RIGHT and hero.x &lt; 590:<br>
+                                hero.x += 5<br>
+                        if ourevent.key == K_LEFT and hero.x &gt; 10:<br>
+                                hero.x -= 5<br>
+                        if ourevent.key == K_SPACE:<br>
+                                ourmissile.x = hero.x<br>
+                                ourmissile.y = hero.y</p>
+<p> REPLACE WITH THIS CODE BLOCK<br>
+        if not enemies:<br>
+                quit = 1</p>
+<p>        for event_ in event.get():<br>
+               if event_.type == QUIT:<br>
+                        quit = 1</p>
+<p>        key_pressed = key.get_pressed()</p>
+<p>         if key_pressed[K_RIGHT] and hero.x &lt; 590:<br>
+                 hero.x += 5</p>
+<p>        if key_pressed[K_LEFT] and hero.x &gt; 10:<br>
+                hero.x -= 5</p>
+<p>        if key_pressed[K_SPACE]:<br>
+                ourmissile.x = hero.x<br>
+                ourmissile.y = hero.y</p>
+<p>Of course this web sites comment engine blows up all the spacing. Horrible really.</p>
+<p>For those new to Python. Search google for PEP 8. That is your style guide where you learn do not mix spaces and tabs in formatting python code. And 4 spaces per indent is normal although Guido and others who write lots of code prefer to use 2 spaces. This becomes more important when you have a lot of code that keeps running off the screen/window of your code editor program.</p>
+<p>Now go back and hold down keys and press other keys and release while holding down the original key and see how much nicer it runs now :-)</p>
+</div><a id="comment-1104"></a>
+<div class="comment-hi"><h3 class="title">Thanks, nice.</h3><p class="submitted">smartmonkey (not verified) - March 10, 2009 @ 6:54pm</p><p>Very nice introduction to Python, just say that pygame can be installed searching it on Synaptic in Xubuntu 8.10.<br>
+What I don't like from python is tab and space indentation required.<br>
+The time.delay(5) method freeze(stop) the program so make my P-350 slower but in a fast CPU this will be near 200 FPS, in the pygame page I saw that they use this:<br>
+# Make sure game doesn't run at more than 60 frames per second<br>
+clock.tick(60)</p>
+</div><a id="comment-3878"></a>
+<div class="comment"><h3 class="title">Python and Tux radar ar the best!!</h3><p class="submitted">Gorden (not verified) - August 6, 2009 @ 9:04pm</p><p>I loved building a space invaders clone with all the codes and things it was the best!!!</p>
+</div><a id="comment-7065"></a>
+<div class="comment-hi"><h3 class="title">Please give me the code in turbo c form</h3><p class="submitted">Anonymous Penguin (not verified) - March 12, 2010 @ 8:15am</p><p>please....................................................<br>
+please....................................................<br>
+please....................................................<br>
+please....................................................<br>
+please....................................................<br>
+please....................................................</p>
+<p>send it to my e-mail bhong015@yahoo.com<br>
+please....................................................</p>
+</div><a id="comment-8881"></a>
+<div class="comment"><h3 class="title">problem</h3><p class="submitted">Anonymous Penguin (not verified) - August 17, 2010 @ 11:59pm</p><p>i had to re write the code a bit to get it to work but still wont please help<br>
+it wont upload the pictures</p>
+<p>def Multiply(x, y):<br>
+	z = x * y<br>
+	return z</p>
+<p>a = 5<br>
+b = 10</p>
+<p>print "a is", a, "and b is", b</p>
+<p>answer = Multiply(a, b)</p>
+<p>if answer &gt; 10:<br>
+	print "Result is bigger than 10"<br>
+else:<br>
+	print "Less or equal to 10"<br>
+import pygame<br>
+import random<br>
+image = pygame.image.load("data/pictures/baddie.png").convert()<br>
+image = pygame.image.load("data/pictures/hero.png").convert()<br>
+image = pygame.image.load("data/pictures/heromissile.png").convert()<br>
+image = pygame.image.load("data/pictures/baddiemissile.png").convert()<br>
+class Sprite:<br>
+    def __init__(self, xpos, ypos, filename):<br>
+        self.x = xpos<br>
+        self.y = ypos<br>
+        self.bitmap = image.load(filename).convert()<br>
+        self.bitmap.set_colorkey((0,0,0))<br>
+    def set_position(self, xpos, ypos):<br>
+        self.x = xpos<br>
+        self.y = ypos<br>
+    def render(self):<br>
+        screen.blit(self.bitmap, (self.x, self.y))<br>
+    def Intersect(s1_x, s1_y, s2_x, s2_y):<br>
+        if (s1_x &gt; s2_x - 32) and (s1_x &lt; s2_x + 32) and (s1_y &gt; s2_y - 32) and (s1_y &lt; s2_y + 32):<br>
+            return 1<br>
+        else:<br>
+            return 0<br>
+init()<br>
+screen = display.set_mode((640,480))<br>
+key.set_repeat(1, 1)<br>
+display.set_caption('PyInvaders')<br>
+backdrop = image.load('backdrop.png')<br>
+enemies = []<br>
+x = 0<br>
+for count in range(10):<br>
+    enemies.append(Sprite(50 * x + 50, 50, 'data/baddie.png'))<br>
+    x += 1</p>
+<p>hero = Sprite('data/hero.png'(20, 400,))<br>
+ourmissile = Sprite( 'data/heromissile.png'(0, 480))<br>
+enemymissile = Sprite( 'data/baddiemissile.png'(0, 480))</p>
+<p>quit = 0<br>
+enemyspeed = 3</p>
+<p>while quit == 0:<br>
+    screen.blit(backdrop, (0, 0))<br>
+    for count in range(len(enemies)):<br>
+        enemies[count].x += enemyspeed<br>
+        enemies[count].render()</p>
+<p>    if enemies[len(enemies)-1].x &gt; 590:<br>
+            enemyspeed = -3<br>
+            for count in range(len(enemies)):<br>
+                    enemies[count].y += 5</p>
+<p>    if enemies[0].x &lt; 10:<br>
+        enemyspeed = 3<br>
+        for count in range(len(enemies)):<br>
+                enemies[count].y += 5</p>
+<p>    if ourmissile.y &lt; 479 and ourmissile.y &gt; 0:<br>
+            ourmissile.render()<br>
+            ourmissile.y += -5</p>
+<p>    if enemymissile.y &gt;= 480 and len(enemies) &gt; 0:<br>
+            enemymissile.x = enemies[random.randint(0, len(enemies) - 1)].x<br>
+            enemymissile.y = enemies[0].y</p>
+<p>    if Intersect(hero.x, hero.y, enemymissile.x, enemymissile.y):<br>
+        quit = 1</p>
+<p>    for count in range(0, len(enemies)):<br>
+        if Intersect(ourmissile.x, ourmissile.y, enemies[count].x, enemies[count].y):<br>
+            del enemies[count]<br>
+            break</p>
+<p>    if len(enemies) == 0:<br>
+        quit = 1</p>
+<p>for ourevent in event.get():<br>
+    if len(enemies) == 0:<br>
+            quit = 1</p>
+<p>for ourevent in event.get():<br>
+        if ourevent.type == QUIT:<br>
+                quit = 1<br>
+        if ourevent.type == KEYDOWN:<br>
+                if ourevent.key == K_RIGHT and hero.x &lt; 590:<br>
+                        hero.x += 5<br>
+        if ourevent.key == K_LEFT and hero.x &gt; 10:<br>
+                hero.x -= 5<br>
+        if ourevent.key == K_SPACE:<br>
+                ourmissile.x = hero.x<br>
+                ourmissile.y = hero.y</p>
+<p>if not enemies:<br>
+        quit = 1</p>
+<p>for event_ in event.get():<br>
+        if event_.type == QUIT:<br>
+                quit = 1</p>
+<p>key_pressed = key.get_pressed()</p>
+<p>if key_pressed[K_RIGHT] and hero.x &lt; 590:<br>
+        hero.x += 5</p>
+<p>if key_pressed[K_LEFT] and hero.x &gt; 10:<br>
+        hero.x -= 5</p>
+<p>if key_pressed[K_SPACE]:<br>
+        ourmissile.x = hero.x<br>
+        ourmissile.y = hero.y</p>
+<p>enemymissile.render()<br>
+enemymissile.y += 5</p>
+<p>hero.render()</p>
+<p>display.update()<br>
+time.delay(5)</p>
+<p>Traceback (most recent call last):<br>
+  File "E:\dont go in my stuff\school stuff\software design and development\python games\space invaders\space inaders.py", line 18, in &lt;module&gt;<br>
+    image = pygame.image.load("data/pictures/baddie.png").convert()<br>
+error: Couldn't open data/pictures/baddie.png</p>
+</div><div class="box">
+
+  <h2>Post new comment</h2>
+
+  <div class="content"><form action="http://www.tuxradar.com/comment/reply/54" accept-charset="UTF-8" method="post" id="comment-form">
+<div><div class="form-item">
+ <label for="edit-name">Your name: </label>
+ <input type="text" maxlength="60" name="name" id="edit-name" size="30" value="Anonymous Penguin" class="form-text">
+</div>
+<div class="form-item">
+ <label for="edit-subject">Title: </label>
+ <input type="text" maxlength="64" name="subject" id="edit-subject" size="60" value="" class="form-text">
+</div>
+<div class="form-item">
+ <label for="edit-comment">Comment: <span class="form-required" title="This field is required.">*</span></label>
+ <textarea cols="60" rows="15" name="comment" id="edit-comment" class="form-textarea required"></textarea>
+</div>
+<input type="hidden" name="form_id" id="edit-comment-form" value="comment_form">
+<fieldset class="captcha"><legend>CAPTCHA</legend><div class="description">Fill in this captcha, or you shall be mocked mercilessly.</div><div class="form-item">
+ 
+ <div class="description"><script type="text/javascript" src="./invaders_help_files/challenge"></script><script type="text/javascript" src="./invaders_help_files/recaptcha.js"></script><div id="recaptcha_widget_div" style="" class=" recaptcha_nothad_incorrect_sol recaptcha_isnot_showing_audio"><div id="recaptcha_area"><table id="recaptcha_table" class="recaptchatable recaptcha_theme_clean"> <tbody><tr height="73"> <td class="recaptcha_image_cell" width="302"><center><div id="recaptcha_image" style="width: 300px; height: 57px; "><img style="display:block;" height="57" width="300" src="./invaders_help_files/image"></div></center></td> <td style="padding: 10px 7px 7px 7px;"> <a id="recaptcha_reload_btn" href="javascript:Recaptcha.reload ();" title="Get a new challenge"><img id="recaptcha_reload" width="25" height="18" alt="Get a new challenge" src="./invaders_help_files/refresh.png"></a> <a id="recaptcha_switch_audio_btn" class="recaptcha_only_if_image" href="javascript:Recaptcha.switch_type('audio');" title="Get an audio challenge"><img id="recaptcha_switch_audio" width="25" height="15" alt="Get an audio challenge" src="./invaders_help_files/audio.png"></a><a id="recaptcha_switch_img_btn" class="recaptcha_only_if_audio" href="javascript:Recaptcha.switch_type('image');" title="Get a visual challenge"><img id="recaptcha_switch_img" width="25" height="15" alt="Get a visual challenge" src="./invaders_help_files/text.png"></a> <a id="recaptcha_whatsthis_btn" href="http://www.google.com/recaptcha/help?c=03AHJ_Vuvt19WUYkayM-1dq9qI1PXeCQT1TA7m_0TrBgNLVsEIAyJqLJ4SLb-8bQVWQ4sClBNL-O-TKyWpy7MPlUy4GhUr-Z516CEq0Hilao3u8hR5aBbZ2geEUA4dWMABN7DzvMD8sy4N30zPRwwaAxRX_-n_yFnAXA" target="_blank" title="Help"><img id="recaptcha_whatsthis" width="25" height="16" src="./invaders_help_files/help.png" alt="Help"></a> </td> <td style="padding: 18px 7px 18px 7px;"> <img id="recaptcha_logo" alt="" width="71" height="36" src="./invaders_help_files/logo.png"> </td> </tr> <tr> <td style="padding-left: 7px;"> <div class="recaptcha_input_area" style="padding-top: 2px; padding-bottom: 7px;"> <span id="recaptcha_challenge_field_holder" style="display: none; "><input type="hidden" name="recaptcha_challenge_field" id="recaptcha_challenge_field" value="03AHJ_Vuvt19WUYkayM-1dq9qI1PXeCQT1TA7m_0TrBgNLVsEIAyJqLJ4SLb-8bQVWQ4sClBNL-O-TKyWpy7MPlUy4GhUr-Z516CEq0Hilao3u8hR5aBbZ2geEUA4dWMABN7DzvMD8sy4N30zPRwwaAxRX_-n_yFnAXA"></span><input style="border: 1px solid #3c3c3c; width: 302px;" name="recaptcha_response_field" id="recaptcha_response_field" type="text" autocomplete="off"> </div> </td> <td></td> <td style="padding: 4px 7px 12px 7px;"> <img id="recaptcha_tagline" width="71" height="17" src="./invaders_help_files/tagline.png"> </td> </tr> </tbody></table> </div></div><script>Recaptcha.widget = Recaptcha.$("recaptcha_widget_div"); Recaptcha.challenge_callback();</script>
+
+	<noscript>
+  		&lt;iframe src="http://api.recaptcha.net/noscript?k=6LdmHAcAAAAAAFNmJ8kpw8DxcrXSABtOBX1MMwIm" height="300" width="500" frameborder="0"&gt;&lt;/iframe&gt;&lt;br/&gt;
+  		&lt;textarea name="recaptcha_challenge_field" rows="3" cols="40"&gt;&lt;/textarea&gt;
+  		&lt;input type="hidden" name="recaptcha_response_field" value="manual_challenge"/&gt;
+	</noscript></div>
+</div>
+<input type="hidden" name="captcha_token" id="edit-captcha-token" value="7c6e4cebd911f4a7a3ed6a53df4ae80d">
+</fieldset>
+<input type="submit" name="op" id="edit-preview" value="Preview comment" class="form-submit">
+<input type="submit" name="op" id="edit-submit" value="Post comment" class="form-submit">
+
+</div></form>
+</div>
+</div>
+</div>	</div>
+</div><iframe src="about:blank" style="height: 0px; width: 0px; visibility: hidden; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; ">This frame prevents back/forward cache problems in Safari.</iframe>
+
+<!--
+<div style="clear: both; margin-top: 30px; text-align: center;">
+<script type="text/javascript" language="JavaScript">
+         google_ad_client = 'ca-futurepublishing_html'; 
+         google_ad_width = 728;
+         google_ad_height = 90;
+         google_ad_format = '728x90_pas_abgc';
+         google_ad_type = 'text';
+         google_encoding = 'latin1'; 
+         google_safe = 'high';
+         google_color_bg = 'cccccc';
+         google_color_text = '000000';
+         google_color_link = '3a89af';
+         google_color_url = '3a89af'; 
+         google_color_border = '666666';
+         google_color_line = 'd3dade';
+         google_alternate_color = '00FFFF';
+</script>
+<script type="text/javascript" language="JavaScript" src='http://pagead2.googlesyndication.com/pagead/show_ads.js'></script>
+<noscript>
+    <img height="1" width="1" border="0" src="http://pagead2.googlesyndication.com/pagead/imp.gif?client=ca-futurepublishing_html&event=noscript" /> 
+</noscript>
+</div>
+-->
+
+<div id="prefooter" style="margin-top: 50px;">
+	<div class="inner" style="text-align:center;">
+
+		
+			<div style="display: inline;">	
+			<form action="http://www.tuxradar.com/frontpage?destination=frontpage" accept-charset="UTF-8" method="post" style="margin-top: 0; padding-top: 0; display: inline;" id="user-login-form">
+	 			Username: <input type="text" maxlength="60" name="name" id="edit-name" size="15" value="" class="form-text required"> &nbsp; 
+	 			Password: <input type="password" name="pass" id="edit-pass" maxlength="60" size="15" class="form-text required">
+				<input type="submit" name="op" id="edit-submit" value="Log in" class="form-submit">
+				<input type="hidden" name="form_id" id="edit-user-login-block" value="user_login_block">
+			</form>
+			</div>
+
+
+			<div style="display: inline; margin-left: 100px">
+				<a href="http://www.tuxradar.com/user/register">Create Account</a> |
+				<a href="http://www.tuxradar.com/about">About TuxRadar</a>
+			</div>
+
+			</div>
+</div>
+
+<div id="footer">
+	<div class="inner">
+		<div id="future_footer" style="width:400px;">
+			<img style="float:left;padding-right:5px;padding-bottom:5px;" src="./invaders_help_files/future.gif" alt="Future Publishing Ltd">
+Copyright 2010 Future Publishing Limited (company
+registered number 2008885), a company registered
+in England and Wales whose registered office is at
+Beauford Court, 30 Monmouth Street, Bath, BA1 2BW, UK<br>
+<a href="http://www.futurenet.com/futureonline/termsandconditions.asp">Terms &amp; Conditions</a> | <a href="http://www.futurenet.com/futureonline/privacy.asp">Privacy Policy</a>
+		</div>
+
+		<div id="host_footer">
+<object width="468" height="60">
+<param name="movie" value="/files/ukfast_speedtest.swf" width="468" height="60">
+<embed src="/files/ukfast_speedtest.swf" width="468" height="60">
+
+</object>
+<br><strong><a href="http://www.ukfast.co.uk/fast-host.html#utm_source=tuxradar-speedtest&utm_medium=banner&utm_content=ukfast-speedtest&utm_campaign=tuxradar-speedtest">Web hosting by UKFast</a></strong>
+		</div>
+	</div>
+</div>
+
+
+
+
+<br>
+
+
+
+<!--OMNITURE CODE HBX2.5 (Universal)-->
+<!-- Copyright 1997 - 2008. Omniture, Inc. All Rights Reserved.  Omniture is a registered trademark of Omniture, Inc. in the United States, Canada, Japan, and the European Community. -->
+<script type="text/javascript" language="javascript">
+var _hbEC=0,_hbE=new Array;function _hbEvent(a,b){b=_hbE[_hbEC++]=new Object();b._N=a;b._C=0;return b;}
+var hbx=_hbEvent("pv");hbx.vpc="HBX0250u";hbx.gn="ehg-futurepub.hitbox.com";
+
+//BEGIN EDITABLE SECTION
+//CONFIGURATION VARIABLES
+hbx.acct="DM570213BNZR71EN3";//ACCOUNT NUMBER(S)
+hbx.pn="TuxRadar_Code Project: Build a Space Invaders clone";//PAGE NAME(S)
+hbx.mlc="/TuxRadar/ROS";//MULTI-LEVEL CONTENT CATEGORY
+
+hbx.pndef="title";//DEFAULT PAGE NAME
+hbx.ctdef="full";//DEFAULT CONTENT CATEGORY
+
+//OPTIONAL PAGE VARIABLES
+//ACTION SETTINGS
+hbx.fv="";//FORM VALIDATION MINIMUM ELEMENTS OR SUBMIT FUNCTION NAME
+hbx.lt="auto_pos";//LINK TRACKING
+hbx.dlf="n";//DOWNLOAD FILTER
+hbx.dft="n";//DOWNLOAD FILE NAMING
+hbx.elf="n";//EXIT LINK FILTER
+
+//SEGMENTS AND FUNNELS
+hbx.seg="";//VISITOR SEGMENTATION
+hbx.fnl="";//FUNNELS
+
+//CAMPAIGNS
+hbx.cmp="_P::cid";//CAMPAIGN ID
+hbx.cmpn="";//CAMPAIGN ID IN QUERY
+hbx.dcmp="";//DYNAMIC CAMPAIGN ID
+hbx.dcmpn="";//DYNAMIC CAMPAIGN ID IN QUERY
+hbx.dcmpe="";//DYNAMIC CAMPAIGN EXPIRATION
+hbx.dcmpre="";//DYNAMIC CAMPAIGN RESPONSE EXPIRATION
+hbx.hra="_P::attr";//RESPONSE ATTRIBUTE
+hbx.hqsr="";//RESPONSE ATTRIBUTE IN REFERRAL QUERY
+hbx.hqsp="";//RESPONSE ATTRIBUTE IN QUERY
+hbx.hlt="";//LEAD TRACKING
+hbx.hla="";//LEAD ATTRIBUTE
+hbx.gp="";//CAMPAIGN GOAL
+hbx.gpn="";//CAMPAIGN GOAL IN QUERY
+hbx.hcn="";//CONVERSION ATTRIBUTE
+hbx.hcv="";//CONVERSION VALUE
+hbx.cp="null";//LEGACY CAMPAIGN
+hbx.cpd="";//CAMPAIGN DOMAIN
+
+//CUSTOM VARIABLES
+hbx.ci="";//CUSTOMER ID
+hbx.hc1="";//CUSTOM 1
+hbx.hc2="";//CUSTOM 2
+hbx.hc3="";//CUSTOM 3
+hbx.hc4="";//CUSTOM 4
+hbx.hrf="";//CUSTOM REFERRER
+hbx.pec="";//ERROR CODES
+
+</script>
+<script type="text/javascript" language="javascript" src="./invaders_help_files/hbx.js"></script>
+<!--END OMNITURE CODE-->
+
+
+<!-- Begin Google Analytics code -->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./invaders_help_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-4487960-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<!-- End Google Analytics code -->
+
+<!-- Begin Sitestat4 code -->
+
+<script language="JavaScript1.1" type="text/javascript">
+<!--
+function sitestat(ns_l){ns_l+='&amp;ns__t='+(new Date()).getTime();ns_pixelUrl=ns_l;
+ns_0=document.referrer;
+ns_0=(ns_0.lastIndexOf('/')==ns_0.length-1)?ns_0.substring(ns_0.lastIndexOf('/'),0):ns_0;
+if(ns_0.length>0)ns_l+='&amp;ns_referrer='+escape(ns_0);
+if(document.images){ns_1=new Image();ns_1.src=ns_l;}else
+document.write('<img src="'+ns_l+'" width="1" height="1" alt="">');}
+var countername = "ros.content.code-project-build-space-invaders-clone.page";
+sitestat("http://uk.sitestat.com/future/tuxradar/s?"+countername);
+//-->
+</script>
+<noscript>
+&lt;img src="http://uk.sitestat.com/future/tuxradar/s?ros.content.code-project-build-space-invaders-clone.page"
+width="1" height="1" alt=""&gt;
+</noscript>
+
+
+<!-- End Sitestat4 code -->
+
+	
+
+
+
+
+
+
+</body></html>
